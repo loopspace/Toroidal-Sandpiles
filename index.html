@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Sandpiles on a Doughnut
+    </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js">
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <table id="sandpile">
+      </table>
+      <form id="config"></form>
+      <table id="cfgtbl">
+	<tr>
+	  <td>Rows</td>
+	  <td><input id="rows"></td>
+	</tr>
+	<tr>
+	  <td>Columns</td>
+	  <td><input id="cols"></td>
+	</tr>
+	<tr>
+	  <td>Geometry</td>
+	  <td>
+	    <select id="geom">
+	      <option value="0">Soft boundary</option>
+	      <option value="1">Hard boundary</option>
+	      <option value="2">Torus</option>
+	      <option value="3">Klein bottle</option>
+	      <option value="4">Projective plane</option>
+	    </select>
+	  </td>
+	</tr>
+	<tr>
+	  <td></td>
+	  <td>
+	    <button type="button" id="topple">Topple</button>
+	  </td>
+	</tr>
+	<tr>
+	  <td></td>
+	  <td>
+	    <button type="button" id="reset">Reset</button>
+	  </td>
+	</tr>
+      </table>
+    </div>
+    <div id="help" class="help">
+      <h3>Quick Help</h3>
+      <ul>
+	<li>Cells are <em>editable</em> meaning that you can change the
+	number of grains by clicking and typing.
+	<li>Set the number of rows and columns to set the grid size.
+	<li>Select the geometry to decide what happens on the boundary.
+	<li>Click <span class="keyword">Topple</span> to topple every
+	  unstable cell.
+	<li>Click <span class="keyword">Reset</span> to reset every
+	   cell to zero.
+      </ul>
+
+      <h3>Explanation</h3>
+      <p>
+      This webpage provides a sandbox to play with sandpiles.
+      Sandpiles were the 90th activity in Annie
+      Perkins' <a href="">Math Art Challenge</a>.
+      </p>
+
+      <p>
+      In a sandpile, each cell has a certain number of grains of sand
+      in it.
+      A cell is <em>unstable</em> if it has more than three grains
+      (more generally, at least as many grains as neighbours).
+      An unstable cell can <em>topple</em>, whereupon it gives one
+      grain to each of its neighbours.
+      </p>
+
+      <p>
+      This implementation is slightly different to how sandpiles work
+      in the literature as I slightly misunderstood the instructions.
+      In the literature, a "turn" consists of a single cell toppling.
+      Although on a given turn there is a choice, in the long run then
+      the order of choices doesn't matter.
+      </p>
+
+      <p>
+      In my version, however, on a given turn then <em>every</em> cell
+      that is currently unstable topples.
+      This can lead to a different type of long term behaviour.
+      In particular, it makes sense to consider <em>periodic</em> long
+      term behaviour.
+      </p>
+
+      <p>
+      With pretty much anything mathematical on a grid I find myself
+      asking "What does this look like on a torus?", shortly followed
+      by a Klein bottle and a projective plane.
+      This determines what happens when cells on the edge topple.
+      The options are:
+      </p>
+
+      <ul>
+	<li><span class="keyword">Soft</span>: grains that fall off the edge disappear.
+	<li><span class="keyword">Hard</span>: grains that should fall off the edge stay in their
+	original cell.
+	<li><span class="keyword">Torus</span>: grains that should fall off the edge disappear
+	reappear on the opposite side.
+	<li><span class="keyword">Klein</span>: grains that should fall off the edge disappear
+	reappear on the opposite side, but the top and bottom edges are
+	reflected.
+	<li><span class="keyword">Projective plane</span>: grains that should fall off the edge disappear
+	reappear on the opposite side, but both pairs of edges are reflected.
+      </ul>
+
+    </div>
+    <div id="helpsign" class="help">
+      <a href="#" id="helplink">?</a>
+    </div>
+  </body>
+</html>

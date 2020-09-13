@@ -1,0 +1,84 @@
+#sandpile td {
+    width: 2em;
+    height: 2em;
+    border: solid black 1px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.pile0 {
+    background: hsl(0,100%,75%);
+    color: black;
+}
+
+.pile1 {
+    background: hsl(90,100%,75%);
+    color: black;
+}
+
+.pile2 {
+    background: hsl(180,100%,75%);
+    color: black;
+}
+
+.pile3 {
+    background: hsl(270,100%,75%);
+    color: black;
+}
+
+.pile4 {
+    background: hsl(0,100%,50%);
+    color: white;
+}
+
+.pile5 {
+    background: hsl(90,100%,50%);
+    color: white;
+}
+
+.pile6 {
+    background: hsl(180,100%,50%);
+    color: white;
+}
+
+.pile7 {
+    background: hsl(270,100%,50%);
+    color: white;
+}
+
+.pile8 {
+    background: hsl(0,100%,25%);
+    color: white;
+}
+
+.help {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    border-radius: 5px 0px 5px 5px;
+    border: 1px solid;
+    padding: 5px;
+    background: #ccc;
+    padding-right: 15px;
+}
+
+#help {
+    display: none;
+    overflow: auto;
+    width: 33%;
+}
+
+#helpsign {
+    font-size: 200%;
+    padding-left: 15px;
+    background: #ddd;
+}
+
+#helpsign a {
+    text-decoration: none;
+    color: black;
+}
+
+.keyword {
+    font-weight: bold;
+}
